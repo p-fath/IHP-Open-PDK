@@ -72,3 +72,4 @@ C {sg13g2_tests/dc_esd_nmos_cl.sym} 180 -110 0 0 {name=x32}
 C {sg13g2_tests/dc_hbt_13g2_5t.sym} 180 -260 0 0 {name=x33}
 C {sg13g2_tests/inv_mc_tb.sym} 1930 -630 0 0 {name=x34}
 C {sg13g2_tests/inv_sweep_tb.sym} 1930 -590 0 0 {name=x35}
+* C {sg13g2_tests/dc_isolbox.sym} 180 -230 0 0 {name=x33}
