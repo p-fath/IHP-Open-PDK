@@ -205,3 +205,11 @@ R=3.061e+3
 Imax=0.11e-4
 }
 C {devices/ammeter.sym} 1190 -30 0 0 {name=Vrh1}
+C {devices/gnd.sym} 270 40 2 0 {name=l9 lab=GND}
+C {sg13g2_pr/ptap1.sym} 270 70 0 0 {name=R7
+model=ptap1
+spiceprefix=X
+w=0.78e-6
+l=0.78e-6
+}
+C {sg13g2_pr/sub.sym} 270 100 0 0 {name=l10 lab=sub!}
