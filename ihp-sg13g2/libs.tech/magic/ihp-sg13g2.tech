@@ -272,10 +272,10 @@ contact
   via4   metal4 metal5
   via5   metal5 metal6
   via6   metal6 metal7
-  stackable
 
-  # MiM cap contacts are not stackable!
   mimcc  mimcap metal6
+
+  stackable
 end
 
 #-----------------------------------------------------
