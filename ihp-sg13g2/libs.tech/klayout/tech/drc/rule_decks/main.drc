@@ -220,6 +220,14 @@ pwell_allowed = CHIP.not(pwell_block)
 digisub_gap = digisub_drw.not(digisub_drw.sized(-1.nm))
 pwell = pwell_allowed.not(nwell_drw).not(digisub_gap)
 
+# nBulay
+nbulay_tables = %w[main nbulay nwell activfiller schottkydiode]
+if nbulay_tables.include?(TABLE_NAME)
+  nbulay_gen_sized = nwell_drw.sized(-1.5.um).sized(0.5.um)
+  nbuLay_gen = nbulay_gen_sized.not(nbulay_block.join(res_drw))
+  nbuLay_gen_nbulay = nbuLay_gen.join(nbulay_drw)
+end
+
 # n activ
 nact_pact_tables = %w[main pwellblock gatpoly cont latchup nwell nbulay]
 if nact_pact_tables.include?(TABLE_NAME)
@@ -300,9 +308,10 @@ if CONNECTIVITY_RULES
   logger.info('Starting IHP-SG13G2 DRC connectivity related derivations.')
 
   # Wells
+  nwell_ring_niso = nwell_drw.with_holes.not(nbulay_drw)
   nwell_holes = nwell_drw.holes.not(nwell_drw)
-  pwell_iso = nbulay_drw.interacting(nwell_holes)
-  pwell_sub = pwell_allowed.not(digisub_drw).not(pwell_iso)
+  isoPWell  = nbulay_drw.and(nwell_holes)
+  pwell_sub = pwell.not(isoPWell).join(nwell_ring_niso)
 
   # conn layers
   poly_con      = gatpoly_drw.not(res_mk)
@@ -325,11 +334,10 @@ if CONNECTIVITY_RULES
   connect(nwell_drw, ntap)
   connect(cont_drw, nactiv)
   connect(cont_drw, pactiv)
-  connect(nwell_drw, nbulay_drw)
+  connect(nbulay_drw, nbuLay_gen_nbulay)
+  connect(nbuLay_gen_nbulay, nwell_drw)
   connect(ntap, cont_drw)
   connect(ptap, cont_drw)
-  connect(pwell_iso, nbulay_drw)
-  connect(pwell_iso, ptap)
   connect(poly_con, cont_drw)
   connect(nact_fet, cont_drw)
   connect(pact_fet, cont_drw)
