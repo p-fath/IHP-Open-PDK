@@ -726,6 +726,8 @@ style gdsii
 	grow 180
 	bloat-or allpactivetap * 30 allnactivenontap 0 isodiffres 150
 	bloat-or allpactivenontap * 180 allnactivetap 0
+	bloat-or pmos * 300
+	bloat-or hvpmos * 400
 	and-not transhalo
 	and-not varactorarea
 	or sealc
