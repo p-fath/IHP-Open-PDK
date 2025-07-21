@@ -3796,11 +3796,11 @@ drc
  variants *
 
  # Length of source/drain areas where butted taps exist
- edge4way pfet *pdiff 300 ~(*nsd)/a 0 0 "pSD must overhang pFET by %dum (pSD.i)"
+ edge4way pfet *pdiff 300 ~(*nsd)/a 0 0 "pSD must overhang pFET by %d (pSD.i)"
  edge4way hvpfet *hvpdiff 400 ~(*hvnsd)/a 0 0 \
-	"pSD must overhang HV pFET by %dum (pSD.i1)"
- edge4way nfet *ndiff 300 ~(*psd)/a 0 0 "pSD must be %dum from nFET (pSD.j)"
- edge4way hvnfet *hvndiff 400 ~(*hvpsd)/a 0 0 "pSD must be %dum from HV nFET (pSD.j1)"
+	"pSD must overhang HV pFET by %d (pSD.i1)"
+ edge4way nfet *ndiff 300 ~(*psd)/a 0 0 "pSD must be %d from nFET (pSD.j)"
+ edge4way hvnfet *hvndiff 400 ~(*hvpsd)/a 0 0 "pSD must be %d from HV nFET (pSD.j1)"
 
  edge4way hvndiff hvnfet 450 hvnfet 0 0 \
 	"HV NMOS minimum length < %d (Gat.a3)"
