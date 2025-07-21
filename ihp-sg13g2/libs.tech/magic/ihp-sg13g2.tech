@@ -1289,7 +1289,7 @@ style gdsii
 
  layer VIA5	via5
 	and-not sealring
- 	squares-grid 5 420 420
+	squares-grid 100 420 420
  	calma 	125 0
 
  layer VIA5	sealv5
