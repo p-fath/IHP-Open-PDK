@@ -4450,8 +4450,6 @@ variants *
 
  width *mimcap 1140 "MiM cap width < %d (MIM.a)"
  spacing *mimcap *mimcap 600 touching_ok "MiM cap spacing < %d (MIM.b)"
- surround *mimcc *mimcap 260 absence_illegal \
-	"MiM cap must surround MiM cap contact by %d (MIM.d - TV1.c)"
  rect_only *mimcap "MiM cap must be rectangular (Grid Rules)
 
  surround *mimcap *metal5/m5 600 absence_illegal \
@@ -4463,14 +4461,12 @@ variants *
 
  # MiM cap contact rules (Vmim)
 
- width mimcc/m5 620 "MiM contact width < %d (TV1.a + 2 * TV1.c)"
+ width mimcc/m6 1140 "MiM contact width < %d (TV1.a + 2 * MIM.d)"
 
- spacing mimcc mimcc 220 touching_ok "MiM contact spacing < %d (TV1.b - 2 * TV1.c)"
+ surround mimcc/m6 *m6,rm6 60 absence_illegal \
+	"Metal6 overlap of MiM contact < %d (TV1.d - MIM.d)"
 
- surround mimcc/m6 *m5,rm5 320 directional \
-	"Metal6 overlap of MiM contact < %d in one direction (TV1.d - TV1.c)"
-
- exact_overlap mimcc/m5
+ exact_overlap mimcc/m6
 
  variants (full)
  cifmaxwidth mimcap_missing_via 0 bend_illegal \
