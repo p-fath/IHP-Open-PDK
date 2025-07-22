@@ -1624,7 +1624,7 @@ style drc
  # not suffice, because only unrelated metal6 should be
  # considered.
  templayer metal6_connects_mimcap
-	bloat-all mimcc/m6 metal6
+	bloat-all mimcc/m6 *metal6
 
  templayer metal6_spacing_to_mimcap metal6
 	and-not metal6_connects_mimcap
