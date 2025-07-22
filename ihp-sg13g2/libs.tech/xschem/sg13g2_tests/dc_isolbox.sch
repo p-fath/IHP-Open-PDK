@@ -5,15 +5,15 @@ V {}
 S {}
 E {}
 B 2 0 -800 800 -400 {flags=graph
-y1=-33
-y2=25
+y1=-11
+y2=15
 ypos1=0
 ypos2=2
 divy=1
 subdivy=4
 unity=1
-x1=-0.0009
-x2=0.0011
+x1=-0.001
+x2=0.001
 divx=1
 subdivx=4
 xlabmag=1.0
@@ -52,13 +52,16 @@ format="tcleval( @value )"
 value="
 .include diodes.lib
 "}
-C {devices/code_shown.sym} -570 -630 0 0 {name=NGSPICE only_toplevel=true 
+C {devices/code_shown.sym} -590 -630 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .param temp=27
 .control
 save all 
 
 dc I0 -1m 1m 1u
+echo Evaluating breakdown voltages:
+meas dc vbk_pos find v(isosub_net) at=1u
+meas dc vbk_neg find v(isosub_net) at=-1u
 write dc_isolbox.raw
 wrdata isolbox.csv nwell_net isosub_net
 .endc
@@ -74,8 +77,8 @@ C {lab_pin.sym} -270 -350 2 0 {name=p1 sig_type=std_logic lab=isosub_net}
 C {lab_pin.sym} -270 -270 2 0 {name=p2 sig_type=std_logic lab=nwell_net}
 C {sg13g2_pr/isolbox.sym} -350 -270 0 0 {name=D1
 model=isolbox
-l=3.0u
-w=3.0u
+l=300.0u
+w=300.0u
 spiceprefix=X
 }
 C {noconn.sym} -270 -250 3 0 {name=l3}
