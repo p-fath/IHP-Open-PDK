@@ -5,16 +5,16 @@ V {}
 S {}
 E {}
 B 2 0 -800 800 -400 {flags=graph
-y1=-28
-y2=19
+y1=-33
+y2=25
 ypos1=0
 ypos2=2
-divy=5
+divy=1
 subdivy=4
 unity=1
-x1=-0.0011
-x2=0.0009
-divx=5
+x1=-0.0009
+x2=0.0011
+divx=1
 subdivx=4
 xlabmag=1.0
 ylabmag=1.0
@@ -28,7 +28,8 @@ logy=0
 color="4 6"
 node="nwell_net
 
-isosub_net"}
+isosub_net"
+hilight_wave=0}
 N -510 -210 -510 -190 {
 lab=GND}
 N -350 -210 -350 -190 {
@@ -51,7 +52,7 @@ format="tcleval( @value )"
 value="
 .include diodes.lib
 "}
-C {devices/code_shown.sym} -560 -580 0 0 {name=NGSPICE only_toplevel=true 
+C {devices/code_shown.sym} -570 -630 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .param temp=27
 .control
@@ -71,15 +72,10 @@ C {isource.sym} -510 -240 2 0 {name=I0 value=1m}
 C {devices/gnd.sym} -350 -190 0 0 {name=l1 lab=GND}
 C {lab_pin.sym} -270 -350 2 0 {name=p1 sig_type=std_logic lab=isosub_net}
 C {lab_pin.sym} -270 -270 2 0 {name=p2 sig_type=std_logic lab=nwell_net}
-C {capa.sym} -270 -220 0 0 {name=C1
-m=1
-value=1p
-footprint=1206
-device="ceramic capacitor"}
-C {devices/gnd.sym} -270 -190 0 0 {name=l3 lab=GND}
 C {sg13g2_pr/isolbox.sym} -350 -270 0 0 {name=D1
 model=isolbox
 l=3.0u
 w=3.0u
 spiceprefix=X
 }
+C {noconn.sym} -270 -250 3 0 {name=l3}
