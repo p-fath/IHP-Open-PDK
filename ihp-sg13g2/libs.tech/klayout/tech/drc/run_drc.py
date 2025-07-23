@@ -435,7 +435,7 @@ def generate_klayout_switches(arguments, layout_path: str) -> dict:
     # Optional switches
     switches["run_mode"] = arguments.run_mode if arguments.run_mode else "deep"
     switches["precheck_drc"] = "true" if arguments.precheck_drc else "false"
-    switches["extra_rules"] = "true" if arguments.extra_rules else "false"
+    switches["disable_extra_rules"] = "true" if arguments.disable_extra_rules else "false"
     switches["no_feol"] = "true" if arguments.no_feol else "false"
     switches["no_beol"] = "true" if arguments.no_beol else "false"
     switches["no_offgrid"] = "true" if arguments.no_offgrid else "false"
@@ -631,7 +631,7 @@ def run_parallel_run(
     if not args.no_density:
         rule_deck_files["density"] = rule_deck_full_path / "rule_decks" / "density.drc"
 
-    if args.extra_rules:
+    if not args.disable_extra_rules:
         rule_deck_files["sg13g2_maximal"] = (
             rule_deck_full_path / "rule_decks" / "sg13g2_maximal.drc"
         )
@@ -721,7 +721,7 @@ def run_single_processor(
     # Run additional checks if requested
     run_check_by_flag(args.antenna, "antenna")
     run_check_by_flag(not args.no_density, "density")
-    run_check_by_flag(args.extra_rules, "sg13g2_maximal")
+    run_check_by_flag(not args.disable_extra_rules, "sg13g2_maximal")
 
     # Final result verification
     check_drc_results(result_dbs, run_dir, layout_path, switches)
@@ -775,7 +775,7 @@ def parse_args():
     run_drc.py --path=<file_path>
             [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
             [--topcell=<topcell_name>] [--run_mode=<mode>] [--drc_json=<json_path>]
-            [--precheck_drc] [--extra_rules] [--no_feol] [--no_beol] [--no_density]
+            [--precheck_drc] [--disable_extra_rules] [--no_feol] [--no_beol] [--no_density]
             [--density_thr=<density_threads>] [--density_only] [--antenna]
             [--antenna_only] [--no_offgrid] [--macro_gen]
     """
@@ -851,9 +851,9 @@ def parse_args():
         "--no_beol", action="store_true", help="Disable all BEOL-related DRC checks."
     )
     parser.add_argument(
-        "--extra_rules",
+        "--disable_extra_rules",
         action="store_true",
-        help="Run the remaining DRC rules from the full rule set (may be slower).",
+        help="Disable the remaining DRC rules from the full rule set (may be slower).",
     )
     parser.add_argument(
         "--no_density", action="store_true", help="Disable density rule checks."
