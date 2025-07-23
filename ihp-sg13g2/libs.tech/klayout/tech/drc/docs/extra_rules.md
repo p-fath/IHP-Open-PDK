@@ -2,7 +2,7 @@
 |--------------------------|-----------------------------------------------------------------------------------------|--------------|
 | NW.a                     | Min. NWell width                                                                        | 0.62         |
 | NW.d1                    | Min. NWell space to external N+Activ inside ThickGateOx                                 | 0.62         |
-| NW.f                     | Min. NWell space to substrate tie in P+Activ not inside ThickGateOx                     | 0.24         | 
+| NW.f                     | Min. NWell space to substrate tie in P+Activ not inside ThickGateOx                     | 0.24         |
 | NW.f1                    | Min. NWell space to substrate tie in P+Activ inside ThickGateOx                         | 0.62         |
 | PWB.a                    | Min. PWell:block width                                                                  | 0.62         |
 | PWB.b                    | Min. PWell:block space or notch                                                         | 0.62         |
