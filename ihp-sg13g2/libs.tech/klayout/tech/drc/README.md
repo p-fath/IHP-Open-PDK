@@ -58,7 +58,7 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
     run_drc.py --path=<file_path>
             [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
             [--topcell=<topcell_name>] [--run_mode=<mode>] [--drc_json=<json_path>]
-            [--precheck_drc] [--extra_rules] [--no_feol] [--no_beol] [--no_density]
+            [--extra_rules] [--no_feol] [--no_beol] [--no_density]
             [--density_thr=<density_threads>] [--density_only] [--antenna]
             [--antenna_only] [--no_offgrid] [--macro_gen]
 ```
@@ -83,7 +83,6 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
   --run_mode {deep,flat}
                         KLayout execution mode: deep, or flat. [default: deep]
   --drc_json DRC_JSON   Path to a JSON file that defines rule values to use.
-  --precheck_drc        Run a minimal set of DRC checks typically required for foundry prechecks.
   --no_feol             Disable all FEOL-related DRC checks.
   --no_beol             Disable all BEOL-related DRC checks.
   --extra_rules         Run the remaining DRC rules from the full rule set (may be slower).
@@ -96,7 +95,6 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
 ```
 
 > **ℹ️ Note**  
-> To enable the **foundry precheck rule set**, use the `--precheck_drc` switch.
 >
 > By default, the **main DRC rule set** is executed, which includes checks such as **density rules**.  
 > To skip density checks, use the `--no_density` option.
@@ -215,7 +213,7 @@ Upon executing the DRC, the result database will appear on your layout interface
 The current SG13G2 DRC rules are categorized as follows:
 
 - **PreCheck Rule Set** – Refer to the [README](docs/precheck_rules.md):  
-  This set contains the essential DRC rules that are required for baseline verification. All rules in this category have been thoroughly verified, tested, and optimized for performance. This rule set is intended for foundry precheck purposes and can be enabled using the `--precheck_drc` option during DRC execution.
+  This set contains the essential DRC rules that are required for baseline verification. All rules in this category have been thoroughly verified, tested, and optimized for performance. This rule set is intended for foundry precheck purposes.
 
 - **Main Rule Set** – Refer to the [README](docs/main_rules.md):  
   This set includes rules that were not previously implemented. It also incorporates essential DRC rules already available in the [PreCheck Rule Set](docs/precheck_rules.md).
