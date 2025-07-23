@@ -58,7 +58,7 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
     run_drc.py --path=<file_path>
             [--table=<table_name>]... [--mp=<num_cores>] [--run_dir=<run_dir_path>]
             [--topcell=<topcell_name>] [--run_mode=<mode>] [--drc_json=<json_path>]
-            [--extra_rules] [--no_feol] [--no_beol] [--no_density]
+            [--disable_extra_rules] [--no_feol] [--no_beol] [--no_density]
             [--density_thr=<density_threads>] [--density_only] [--antenna]
             [--antenna_only] [--no_offgrid] [--macro_gen]
 ```
@@ -85,7 +85,7 @@ The `run_drc.py` script takes your gds to run DRC rule decks with switches to se
   --drc_json DRC_JSON   Path to a JSON file that defines rule values to use.
   --no_feol             Disable all FEOL-related DRC checks.
   --no_beol             Disable all BEOL-related DRC checks.
-  --extra_rules         Run the remaining DRC rules from the full rule set (may be slower).
+  --disable_extra_rules Disable the remaining DRC rules from the full rule set (may be slower).
   --no_density          Disable density rule checks.
   --density_only        Run only density rules.
   --antenna             Enable antenna rule checks.
@@ -219,5 +219,5 @@ The current SG13G2 DRC rules are categorized as follows:
   This set includes rules that were not previously implemented. It also incorporates essential DRC rules already available in the [PreCheck Rule Set](docs/precheck_rules.md).
 
 - **Extra Rule Set** – Refer to the [README](docs/extra_rules.md):  
-  This set includes additional residual rules that are not part of the main set. These rules can be activated by using the `--extra_rules` switch when executing the DRC. Please note that these rules have not been verified or tested and may be slower.
+  This set includes additional residual rules that are not part of the main set. These rules can be deactivated by using the `--disable_extra_rules` switch when executing the DRC. Please note that these rules have not been verified or tested and may be slower.
 ---

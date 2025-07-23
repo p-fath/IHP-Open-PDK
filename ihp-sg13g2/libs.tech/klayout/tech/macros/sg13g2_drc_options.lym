@@ -120,7 +120,7 @@
       'density_thr' => 1,
       'no_feol' => false,
       'no_beol' => false,
-      'extra_rules' => false,
+      'disable_extra_rules' => false,
       'no_density' => true,
       'density_only' => false,
       'antenna' => false,
@@ -190,7 +190,7 @@
     # Checkboxes - BASIC tab
     chk_feol = create_check_box("Disable FEOL Checks", options['no_feol'], "Skips Front-End-Of-Line rule checks (e.g., active, poly).")
     chk_beol = create_check_box("Disable BEOL Checks", options['no_beol'], "Skips Back-End-Of-Line rule checks (e.g., metals and vias).")
-    chk_extra = create_check_box("Enable Extra Rule Set", options['extra_rules'], "Uses the extra rule set available (may be slower).")
+    chk_extra = create_check_box("Disable Extra Rule Set", options['disable_extra_rules'], "Skips the extra rule set available (may be slower).")
     @basic_layout_setup.addRow("", chk_feol)
     @basic_layout_setup.addRow("", chk_beol)
     @basic_layout_setup.addRow("", chk_extra)
@@ -440,7 +440,7 @@
     options['parallel_runs'] = @basic_layout_update.itemAt(7).widget.value if @basic_layout_update.itemAt(7).widget
     options['no_feol'] = @basic_layout_update.itemAt(9).widget.checked if @basic_layout_update.itemAt(9).widget
     options['no_beol'] = @basic_layout_update.itemAt(10).widget.checked if @basic_layout_update.itemAt(10).widget
-    options['extra_rules'] = @basic_layout_update.itemAt(11).widget.checked if @basic_layout_update.itemAt(11).widget
+    options['disable_extra_rules'] = @basic_layout_update.itemAt(11).widget.checked if @basic_layout_update.itemAt(11).widget
 
     @advanced_layout_update = @tab_widget_update.widget(1).layout
     options['run_dir'] = @advanced_layout_update.itemAt(1).widget.layout.itemAt(0).widget.text
