@@ -86,8 +86,8 @@ value="
 **results_plot_logy_index=3
 
 **parameter_sweep_begin
-**iso_w=Auto:3u:100:300u
-**iso_l=Auto:3u:100:300u
+**iso_w=Auto:3u:10:300u
+**iso_l=Auto:3u:10:500u
 **parameter_sweep_end
 
 **results_plot_begin

@@ -76,3 +76,6 @@ C {sg13g2_tests/inv_mc_tb.sym} 1890 -710 0 0 {name=x34}
 C {sg13g2_tests/inv_sweep_tb.sym} 1890 -670 0 0 {name=x35}
 C {sg13g2_tests/dc_isolbox.sym} 180 -120 0 0 {name=x36}
 C {sg13g2_tests/isolbox_sweep_tb.sym} 1890 -630 0 0 {name=x37}
+C {sg13g2_tests/iso_dc_lv_nmos.sym} 2220 -710 0 0 {name=x38}
+C {sg13g2_tests/iso_dc_hv_nmos.sym} 2220 -670 0 0 {name=x39}
+C {sg13g2_tests/iso_dc_res.sym} 2220 -630 0 0 {name=x40}

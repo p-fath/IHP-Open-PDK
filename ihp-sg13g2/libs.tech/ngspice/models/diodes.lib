@@ -111,8 +111,8 @@ D3 1 2 dpcorner area=DEV_C
 
 .subckt isolbox isosub NWell bn
 .params
-+w=3u
 +l=3u
++w=3u
 +aw=(w-2.1u)*(l-2.1u)
 +pw=(w+l)*2 - 8*1.05u
 +ab=(w*l)

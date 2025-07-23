@@ -4,9 +4,9 @@ K {}
 V {}
 S {}
 E {}
-B 2 0 -800 800 -400 {flags=graph
-y1=-11
-y2=15
+B 2 -110 -410 690 -10 {flags=graph
+y1=-16
+y2=16
 ypos1=0
 ypos2=2
 divy=1
@@ -30,29 +30,29 @@ node="nwell_net
 
 isosub_net"
 hilight_wave=0}
-N -510 -210 -510 -190 {
+N -500 30 -500 50 {
 lab=GND}
-N -350 -210 -350 -190 {
+N -340 30 -340 50 {
 lab=GND}
-N -510 -350 -510 -270 {
+N -500 -110 -500 -30 {
 lab=isosub_net}
-N -510 -350 -350 -350 {
+N -500 -110 -340 -110 {
 lab=isosub_net}
-N -350 -350 -350 -330 {
+N -340 -110 -340 -90 {
 lab=isosub_net}
-N -350 -270 -270 -270 {
+N -340 -30 -260 -30 {
 lab=nwell_net}
-N -350 -350 -270 -350 {
+N -340 -110 -260 -110 {
 lab=isosub_net}
-N -270 -270 -270 -250 {
+N -260 -30 -260 -10 {
 lab=nwell_net}
-C {devices/gnd.sym} -510 -190 0 0 {name=l2 lab=GND}
-C {devices/code_shown.sym} -560 -730 0 0 {name=MODEL only_toplevel=true
+C {devices/gnd.sym} -500 50 0 0 {name=l2 lab=GND}
+C {devices/code_shown.sym} -580 -490 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
 .include diodes.lib
 "}
-C {devices/code_shown.sym} -590 -630 0 0 {name=NGSPICE only_toplevel=true 
+C {devices/code_shown.sym} -580 -390 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .param temp=27
 .control
@@ -67,18 +67,18 @@ wrdata isolbox.csv nwell_net isosub_net
 .endc
 "}
 C {devices/title.sym} -360 130 0 0 {name=l5 author="Copyright 2023 IHP PDK Authors"}
-C {devices/launcher.sym} 70 -360 0 0 {name=h5
+C {devices/launcher.sym} -40 30 0 0 {name=h5
 descr="Load IV curve" 
 tclcommand="xschem raw_read $netlist_dir/dc_isolbox.raw dc"
 }
-C {isource.sym} -510 -240 2 0 {name=I0 value=1m}
-C {devices/gnd.sym} -350 -190 0 0 {name=l1 lab=GND}
-C {lab_pin.sym} -270 -350 2 0 {name=p1 sig_type=std_logic lab=isosub_net}
-C {lab_pin.sym} -270 -270 2 0 {name=p2 sig_type=std_logic lab=nwell_net}
-C {sg13g2_pr/isolbox.sym} -350 -270 0 0 {name=D1
+C {isource.sym} -500 0 2 0 {name=I0 value=1m}
+C {devices/gnd.sym} -340 50 0 0 {name=l1 lab=GND}
+C {lab_pin.sym} -260 -110 2 0 {name=p1 sig_type=std_logic lab=isosub_net}
+C {lab_pin.sym} -260 -30 2 0 {name=p2 sig_type=std_logic lab=nwell_net}
+C {sg13g2_pr/isolbox.sym} -340 -30 0 0 {name=D1
 model=isolbox
-l=300.0u
-w=300.0u
+l=3.0u
+w=3.0u
 spiceprefix=X
 }
-C {noconn.sym} -270 -250 3 0 {name=l3}
+C {noconn.sym} -260 -10 3 0 {name=l3}
