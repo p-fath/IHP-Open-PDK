@@ -1207,9 +1207,9 @@ XD1 isosub nwell sub isolbox w={w} l={l}
   <.PortSym 0 -90 1 0 1>
   <.PortSym 0 -30 2 0 1>
   <.PortSym 0 30 3 0 1>
-  <.ID 25 -60 isolbox "1=w=3u==" "1=l=3u==">
-  <Text 5 25 8 #000000 0 "sub">
-  <Text 5 -35 8 #000000 0 "nwell">
-  <Text 5 -95 8 #000000 0 "isosub">
+  <.ID 20 -60 isolbox "1=w=3u==" "1=l=3u==">
+  <Text 2 35 8 #000000 90 "sub">
+  <Text 2 -20 8 #000000 90 "nwell">
+  <Text 2 -75 8 #000000 90 "isosub">
   </Symbol>
 </Component>
