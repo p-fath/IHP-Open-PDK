@@ -144,7 +144,7 @@ douter bn NWell dsub_mod area=mf*abus pj=0
 doutcapcorner bn NWell doutcapcorner_mod area=0 pj=mf*14.4
 doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 
-.model dinner_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dinner_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1.5e-19
 +n=1.02
 +ik=100e-9
@@ -155,22 +155,22 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 *+tbv1=-698.557e-6
 +rs=5e5
 
-.model dinrevl_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dinrevl_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1e-18
 +n=100
 +xti=2200
 
-.model dinrevlside_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dinrevlside_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=10e-18
 +n=100
 +xti=2200
 
-.model dinrevh_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dinrevh_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=3e-21
 +n=30
 +xti=700
 
-.model dincaparea_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dincaparea_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1e-25
 +cj=967.2e-18
 +cjsw=436e-18
@@ -179,7 +179,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +vj=0.7312
 +php=0.7036
 
-.model dinneredge_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dinneredge_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=3.89e-20
 +jsw=7.239e-20
 +n=1.01
@@ -194,7 +194,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +rs=5e4
 *+rsw=12e3
 
-.model dsub_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dsub_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=4.052e-18
 +n=1.01
 +ik=1.023e-9
@@ -205,7 +205,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +isr=86e-18
 +rs=5e5
 
-.model dsubedge0_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dsubedge0_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=4.052e-18
 +n=1.01
 +jsw=17.26e-18
@@ -218,7 +218,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 *+nz=0.5
 +rs=10e3
 
-.model dsubedgexds_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model dsubedgexds_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=4.052e-18
 +n=1.01
 +jsw=17.26e-18
@@ -232,7 +232,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +rs=28e3
 +rsw=16e3
 
-.model doutcapcorner_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model doutcapcorner_mod d tnom=27 level=2 tlevc=0 tlev=2
 +jsw=1e-25
 +cjsw='(389.8354-784.332*xds+736.9852*(xds**1.33)-91.4155*xds*xds+5.388092*xds*xds*xds)*1e-18'
 +mjsw='0.3029153+16.37804*xds-16.45657*(xds**0.9972906)'
@@ -240,7 +240,7 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 *+bv='(213.2898+(145-213.2898)/((1+(xds/0.9145351)**38.88081)**0.02169905))'
 *+nz=200
 
-.model doutcaparea_mod d tnom=27 level=1 tlevc=0 tlev=2
+.model doutcaparea_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1e-25
 +cj=70.13e-18
 +mj=0.3874

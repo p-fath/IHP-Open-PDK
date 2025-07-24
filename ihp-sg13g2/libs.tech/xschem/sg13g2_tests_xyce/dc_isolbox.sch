@@ -5,8 +5,8 @@ V {}
 S {}
 E {}
 B 2 470 -540 1270 -140 {flags=graph
-y1=-11
-y2=15
+y1=-25
+y2=16
 ypos1=0
 ypos2=2
 divy=1
@@ -58,8 +58,8 @@ C {lab_pin.sym} 280 -280 2 0 {name=p1 sig_type=std_logic lab=isosub_net}
 C {lab_pin.sym} 280 -200 2 0 {name=p2 sig_type=std_logic lab=nwell_net}
 C {sg13g2_pr/isolbox.sym} 200 -200 0 0 {name=D1
 model=isolbox
-l=300.0u
-w=300.0u
+l=3.0u
+w=3.0u
 spiceprefix=X
 }
 C {noconn.sym} 280 -180 3 0 {name=l3}
@@ -70,10 +70,12 @@ value="
 .preprocess replaceground true
 .option temp=27
 .dc I0 -1m 1m 1u
-.print dc format=raw file=dc_isolbox.raw V(nwell_net) I(isosub_net)
+.meas dc vbk_pos find v(isosub_net) at=1u
+.meas dc vbk_neg find v(isosub_net) at=-1u
+.print dc format=raw file=dc_isolbox.raw V(nwell_net) V(isosub_net)
 "
 "}
-C {launcher.sym} 540 -590 0 0 {name=h2
+C {launcher.sym} 510 -570 0 0 {name=h2
 descr=SimulateXyce
 tclcommand="
 # Setup the default simulation commands if not already set up
@@ -96,7 +98,7 @@ C {simulator_commands_shown.sym} 420 -830 0 0 {name=Libs_Xyce
 simulator=xyce
 only_toplevel=false 
 value="tcleval(
-.include $::SG13G2_MODELS_XYCE/diodes2.lib
+.include $::SG13G2_MODELS_XYCE/diodes.lib
 )"}
 C {simulator_commands_shown.sym} 0 -710 0 0 {name=Libs_Ngspice
 simulator=ngspice
