@@ -176,8 +176,8 @@ dincaparea isosub NWell dincaparea_mod area=mf*aws pj=mf*pws-3
 +xti=1.9
 +bv=9.7
 +ibv=1e-12
-*+nz=0.1
-*+tbv1=-698.557e-6
+*+nbv=0.1
+*+tcv=-698.557e-6
 +rs=5e5
 
 .model dinrevl_mod d tnom=27 level=2 tlevc=0 tlev=2
@@ -213,8 +213,8 @@ dincaparea isosub NWell dincaparea_mod area=mf*aws pj=mf*pws-3
 +xti=1.529
 +bv=9.7
 +ibv=1e-12
-*+nz=0.1
-*+tbv1=-698.557e-6
+*+nbv=0.1
+*+tcv=-698.557e-6
 +isr=20e-18
 +rs=5e4
 *+rsw=12e3
@@ -243,7 +243,7 @@ douter bn NWell dsub_mod area=mf*abus pj=0
    douteredgexds bn NWell dsubedgexds_mod area=mf*pbs pj=mf*pbs
 .endif
 
-doutcapcorner bn NWell doutcapcorner_mod area=0 pj=mf*14.4
+doutcapcorner bn NWell doutcapcorner_mod area=1.0e-10 pj=mf*14.4
 doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 
 .model dsub_mod d tnom=27 level=2 tlevc=0 tlev=2
@@ -252,8 +252,8 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +ik=1.023e-9
 +xti=2.112
 +bv=94.7
-*+nz=6
-*+tbv1=-422.386e-6
++nbv=6
++tcv=-422.386e-6
 +isr=86e-18
 +rs=5e5
 
@@ -265,9 +265,9 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 *+ikp=10.73e-9
 +xti=2.112
 +bv=13.54
-*+tbv1=-747.415e-6
++tcv=-747.415e-6
 +isr=10e-18
-*+nz=0.5
++nbv=0.5
 +rs=10e3
 
 .model dsubedgexds_mod d tnom=27 level=2 tlevc=0 tlev=2
@@ -278,8 +278,8 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 *+ikp=10.73e-9
 +xti=2.112
 +bv='(-11.70818-8.218455*xds+9.586918*ln(xds)+51.45397*sqrt(xds))'
-*+tbv1=-980.73e-6
-*+nz=(5.452942+(0.4699715-5.452942)/((1+((xds/0.982607)**308.6349))**0.005495705))
++tcv=-980.73e-6
++nbv=(5.452942+(0.4699715-5.452942)/((1+((xds/0.982607)**308.6349))**0.005495705))
 +isr=1e-16
 +rs=28e3
 +rsw=16e3
@@ -289,8 +289,8 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +cjsw='(389.8354-784.332*xds+736.9852*(xds**1.33)-91.4155*xds*xds+5.388092*xds*xds*xds)*1e-18'
 +mjsw='0.3029153+16.37804*xds-16.45657*(xds**0.9972906)'
 +php='0.05502945+((0.51-0.05502945)/(1+((xds/1.059131)**7.087824)))'
-*+bv='(213.2898+(145-213.2898)/((1+(xds/0.9145351)**38.88081)**0.02169905))'
-*+nz=200
++bv='(213.2898+(145-213.2898)/((1+(xds/0.9145351)**38.88081)**0.02169905))'
++nbv=200
 
 .model doutcaparea_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1e-25
@@ -301,6 +301,6 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +mjsw='0.2842892-0.1665323*xds+0.06902971*xds*xds-0.004775717*xds*xds*xds'
 +php='0.6372219-0.6615502*sqrt(xds)+0.2246224*xds-0.0005250178*xds*xds*xds'
 +bv='(262.7082+((154.5533-262.7082)/(1+(xds/3.044691)**1.691568)))'
-*+nz=200
++nbv=200
 
 .ends ddnwpsub
