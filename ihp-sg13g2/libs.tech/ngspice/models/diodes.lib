@@ -126,23 +126,48 @@ D3 1 2 dpcorner area=DEV_C
 +pws=pw/scaling
 +aws=aw/(scaling*scaling)
 
+xdpwdnw isosub NWell dpwdnw l='l' w='w'
++aw=aw
++pw=pw
++xd=xd
++mf=mf
++scaling=scaling
++xds=xds
++pws=pws
++aws=aws
+
+xdnwpsub NWell bn ddnwpsub l='l' w='w'
++ab=ab
++pb=pb
++xd=xd
++mf=mf
++scaling=scaling
++xds=xds
++pbs=pbs
++abus=abus
+
+.ends isolbox
+
+
+.subckt dpwdnw isosub NWell
+.params
++l=3u
++w=3u
++aw=(w-2.1u)*(l-2.1u)
++pw=(w+l)*2 - 8*1.05u
++xd=0
++mf=1
++scaling=1e-6
++xds=xd/scaling
++pws=pw/scaling
++aws=aw/(scaling*scaling)
+
 dinner isosub NWell dinner_mod area=mf*aws pj=0
 dinneredge isosub NWell dinneredge_mod area=mf*pws pj=mf*pws
 dinrevl NWell isosub dinrevl_mod area=mf*aws pj=0
-dinrevlside NWell isosub dinrevlside_mod area=mf*pws pj=0           
+dinrevlside NWell isosub dinrevlside_mod area=mf*pws pj=0
 dinrevh NWell isosub dinrevh_mod area=mf*aws pj=0
 dincaparea isosub NWell dincaparea_mod area=mf*aws pj=mf*pws-3
-
-douter bn NWell dsub_mod area=mf*abus pj=0
-
-.if (xds<0.6)
-   douteredge0 bn NWell dsubedge0_mod area=mf*pbs pj=mf*pbs
-.else
-   douteredgexds bn NWell dsubedgexds_mod area=mf*pbs pj=mf*pbs
-.endif
-
-doutcapcorner bn NWell doutcapcorner_mod area=0 pj=mf*14.4
-doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 
 .model dinner_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=1.5e-19
@@ -193,6 +218,33 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +isr=20e-18
 +rs=5e4
 *+rsw=12e3
+
+.ends dpwdnw
+
+
+.subckt ddnwpsub NWell bn
+.params
++l=3u
++w=3u
++ab=(w*l)
++pb=(w+l)*2
++xd=0
++mf=1
++scaling=1e-6
++xds=xd/scaling
++pbs=pb/scaling
++abus=ab/(scaling*scaling)
+
+douter bn NWell dsub_mod area=mf*abus pj=0
+
+.if (xds<0.6)
+   douteredge0 bn NWell dsubedge0_mod area=mf*pbs pj=mf*pbs
+.else
+   douteredgexds bn NWell dsubedgexds_mod area=mf*pbs pj=mf*pbs
+.endif
+
+doutcapcorner bn NWell doutcapcorner_mod area=0 pj=mf*14.4
+doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 
 .model dsub_mod d tnom=27 level=2 tlevc=0 tlev=2
 +is=4.052e-18
@@ -251,4 +303,4 @@ doutcaparea bn NWell doutcaparea_mod area=mf*abus pj=mf*pbs
 +bv='(262.7082+((154.5533-262.7082)/(1+(xds/3.044691)**1.691568)))'
 *+nz=200
 
-.ends isolbox
+.ends ddnwpsub

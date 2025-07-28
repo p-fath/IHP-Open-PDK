@@ -67,7 +67,7 @@ wrdata isolbox.csv nwell_net isosub_net
 .endc
 "}
 C {devices/title.sym} -360 130 0 0 {name=l5 author="Copyright 2023 IHP PDK Authors"}
-C {devices/launcher.sym} -40 30 0 0 {name=h5
+C {devices/launcher.sym} -30 30 0 0 {name=h5
 descr="Load IV curve" 
 tclcommand="xschem raw_read $netlist_dir/dc_isolbox.raw dc"
 }
