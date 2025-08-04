@@ -4593,6 +4593,13 @@ obs obsm5	Metal5
 obs obsm6	TopMetal1
 obs obsm7	TopMetal2
 
+obs obsm1,obsm2	Via1
+obs obsm2,obsm3	Via2
+obs obsm3,obsm4	Via3
+obs obsm4,obsm5	Via4
+obs obsm5,obsm6	TopVia1
+obs obsm6,obsm7	TopVia2
+
 end
 
 #-----------------------------------------------------
