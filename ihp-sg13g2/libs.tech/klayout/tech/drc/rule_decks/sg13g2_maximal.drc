@@ -354,8 +354,6 @@ class DRC::DRCEngine
 end
 
 class DRC::DRCLayer
-<<<<<<< HEAD:ihp-sg13g2/libs.tech/klayout/tech/drc/rule_decks/sg13g2_maximal.drc
-=======
     def ext_convert_to_edge_pair_layer()
         return self.collect_to_edge_pairs { |edge|
             RBA::DEdgePair::new(edge, edge, true)
@@ -377,7 +375,6 @@ class DRC::DRCLayer
         return self
     end
 
->>>>>>> c69d21bfb070330b6953e4d1d78c3b723c3967e9:ihp-sg13g2/libs.tech/klayout/tech/drc/sg13g2_maximal.lydrc
     def ext_and(other)
         self_min_coherence_state = self.data.min_coherence?
         other_min_coherence_state =  other.data.min_coherence?
@@ -707,7 +704,7 @@ class DRC::DRCLayer
         else
             edge_layer = self
         end
-        output_layer = edge_layer.extended(:out =&gt; outside, :in =&gt; inside)
+        output_layer = edge_layer.extended(:out => outside, :in => inside)
         return output_layer.ext_merge(true, 0)
     end
 
