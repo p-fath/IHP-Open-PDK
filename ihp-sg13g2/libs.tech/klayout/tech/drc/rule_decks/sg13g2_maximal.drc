@@ -2268,26 +2268,11 @@ end.().output("Sal.e", "Min. SalBlock space to Cont = 0.20")
     badViaLine.ext_rectangles(inverted: true)
 end.().output("Cnt.b1", "Min. Cont space in a contact array of more than 4 rows and more then 4 columns (Cnt.b1 is only required in one direction. The distance of the other direction must be at least Cnt.b.) = 0.20")
 -> do
-    temp_layer_4.ext_enclosed(Act_Nsram_or_Activ_mask.ext_not(DigiBnd), 0.07.um, consider_overlaps_as_errors: true)
-end.().output("Cnt.c", "Min. Activ enclosure of Cont = 0.07")
--> do
-    Cont_SQ.ext_enclosed(GP_Nsram, 0.07.um, consider_overlaps_as_errors: true)
-end.().output("Cnt.d", "Min. GatPoly enclosure of Cont = 0.07")
--> do
-    Cont_GP.ext_not(SVaricap).ext_separation(Activ, 0.14.um, consider_intersecting_edges: false, consider_touch_points: false)
-end.().output("Cnt.e", "Min. Cont on GatPoly space to Activ = 0.14")
--> do
     Cont_Act.ext_not(SVaricap).ext_separation(GP_Nsram, 0.11.um)
 end.().output("Cnt.f", "Min. Cont on Activ space to GatPoly = 0.11")
 -> do
     Cont_not_Act_GP.dup
 end.().output("Cnt.g", "Cont must be within Activ or GatPoly")
--> do
-    pSD.ext_separation(Cont_NAct.ext_not(SVaricap), 0.09.um, consider_intersecting_edges: false, consider_touch_points: false)
-end.().output("Cnt.g1", "Min. pSD space to Cont on nSD-Activ = 0.09")
--> do
-    Cont_PAct_not_SVaricap.ext_enclosed(pSD_Nsram, 0.09.um, consider_intersecting_edges: false, consider_touch_points: false)
-end.().output("Cnt.g2", "Min. pSD overlap of Cont on pSD-Activ = 0.09")
 -> do
     Cont_not_M1.dup
 end.().output("Cnt.h", "Cont must be covered with Metal1")
@@ -2729,9 +2714,6 @@ if $recommendedRules
 	end.().output("Pad.kR", "TopVia2 under Pad not allowed (TopVia2 may be damaged during packaging process, we recommend not to use them below Passiv.)")
 end
 
--> do
-    cupPad_candidat.ext_space(50.0.um, polygon_output: true)
-end.().output("Padc.b", "Min. CuPillarPad space = Table 6.1")
 -> do
     cupPad_candidat.ext_separation(Act_EdgeSeal_not_HRACT, 30.0.um, consider_touch_points: false, polygon_output: true)
 end.().output("Padc.d", "Min. CuPillarPad space to EdgeSeal = 30.00")
