@@ -91,10 +91,6 @@ def setup_run_mode(run_mode)
   end
 end
 
-# Run mode
-setup_run_mode($run_mode)
-logger.info("#{$run_mode} mode is enabled for #{TABLE_NAME} table.")
-
 #================================================
 #------------- LAYERS DEFINITIONS ---------------
 #================================================
